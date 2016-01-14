@@ -2,7 +2,7 @@
 class Person # create Person class
   attr_accessor :name
 
-  def greeting
+  def greeting # add greeting method
     puts "Hi, my name is #{name}."
   end
 end
@@ -18,3 +18,8 @@ class Instructor # add Instructor class to Person class
     "Everything in Ruby is an Object."
   end
 end
+
+# create Chris. he tells us his name.
+chris = Instructor.new
+chris.name = "Chris"
+chris.greeting
