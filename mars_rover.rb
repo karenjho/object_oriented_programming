@@ -13,5 +13,9 @@ class Rover
     puts "Please provide a plateau size."
     puts "Format: W L. W = width of plateau. L = height of plateau."
     plateau_size = gets.chomp.split(" ")
+
+    puts "Please provide a starting position for your rover."
+    puts "Format: X Y D. X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
+    starting_position = gets.chomp.split(" ")
   end
 end
