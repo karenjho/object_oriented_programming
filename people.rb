@@ -34,3 +34,8 @@ chris.teach
 
 # ask Cristina to learn. she learns.
 cristina.learn
+
+# ask Cristina to teach. she doesn't know what the hell is going on.
+cristina.teach
+#### teach is a method specific to the Instructor class.
+#### as an object of the Student class, cristina cannot see/run the teach method.
