@@ -1,6 +1,10 @@
 # create two classes: Student and Instructor
 class Person # create Person class
   attr_accessor :name
+
+  def greeting
+    puts "Hi, my name is #{name}."
+  end
 end
 
 class Student < Person # add Student class to Person class
