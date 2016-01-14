@@ -3,12 +3,14 @@ class Rover
   # Rover class has three attributes: x-coordinate, y-coordinate, direction
   attr_accessor :x_coordinate, :y_coordinate, :direction
 
+# allows user to create a new rover and set coordinates right away
   def initialize(x_coordinate = 0, y_coordinate = 0, direction = "N")
     @x_coordinate = x_coordinate.to_i
     @y_coordinate = y_coordinate.to_i
     @direction = direction.to_s.upcase
   end
 
+# move method instructs rover how to move when it encounters "M" instruction
   def move
     case @direction
       when "N"
@@ -22,6 +24,7 @@ class Rover
     end
   end
 
+# turn method instructs rover how to move when it encounters "L" or "R" instruction
   def turn(l_or_r)
     case @direction
       when "N"
@@ -34,23 +37,25 @@ class Rover
         l_or_r == "R" ? @direction = "N" : @direction = "S"
     end
   end
-
-
 end
 
 def read_instructions
+  # asks user for plateau size
   puts "Please provide a plateau size in this format: W L"
   puts "W = width of plateau. L = height of plateau."
   plateau_size = gets.chomp.split(" ")
 
+  # asks user for starting postiion of the first rover
   puts "Please provide a start position for the first rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
   r1_start = gets.chomp.split(" ")
   r1 = Rover.new(r1_start[0], r1_start[1], r1_start[2])
 
+  # asks user for move and turn instructions for the first rover
   puts "Please provide a series of move and turn instructions for the first rover."
   puts "L = turn left. R = turn right. M = move 1 space. Do not include spaces."
-  r1_instructions = gets.chomp.split("")
+  r1_instructions = gets.chomp.upcase.split("")
+  # breaks down the string of move and turn instructions
   r1_instructions.each do |instruction|
     case instruction
       when "M"
@@ -61,16 +66,20 @@ def read_instructions
         r1.turn("R")
     end
   end
+  # gives ending position of the first rover
   puts "End position for the first rover: #{r1.x_coordinate} #{r1.y_coordinate} #{r1.direction}."
 
+  # asks user for starting postiion of the first rover
   puts "Please provide a start position for the second rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
   r2_start = gets.chomp.split(" ")
   r2 = Rover.new(r2_start[0],r2_start[1],r2_start[2])
 
+  # asks user for move and turn instructions for the second rover
   puts "Please provide a series of move and turn instructions for the second rover."
   puts "L = turn left. R = turn right. M = move 1 space. Do not include spaces."
-  r2_instructions = gets.chomp.split("")
+  r2_instructions = gets.chomp.upcase.split("")
+  # breaks down the string of move and turn instructions
   r2_instructions.each do |instruction|
     case instruction
       when "M"
@@ -81,5 +90,8 @@ def read_instructions
         r2.turn("R")
     end
   end
+  # gives ending position of the second rover
   puts "End position for the first rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
 end
+
+read_instructions
