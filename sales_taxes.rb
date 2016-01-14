@@ -37,7 +37,7 @@ end
 
 def good_classification
   case @name
-  when .include?("book")
+  when .include?("book") || .include?("chocolate") || .include?("medical")
     good = Exempt.new
   else
     good = NonExempt.new
@@ -51,4 +51,7 @@ def input
 
   puts "How many items do you have? Enter a number here (e.g. 4):"
   item_count = gets.chomp.to_i
+
+
+  end
 end
