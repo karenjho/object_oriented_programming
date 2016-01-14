@@ -30,11 +30,25 @@ class Exempt < Good
   end
 end
 
-class NonExempt < Good
+class Import < Good
   def initialize
   end
 end
 
+def good_classification
+  case @name
+  when .include?("book")
+    good = Exempt.new
+  else
+    good = NonExempt.new
+  end
+end
+
 def input
-  
+  puts "Please give a name for your receipt:"
+  receipt1 = gets.chomp.to_s.capitalize
+  puts "Receipt #{receipt1} has been created."
+
+  puts "How many items do you have? Enter a number here (e.g. 4):"
+  item_count = gets.chomp.to_i
 end
