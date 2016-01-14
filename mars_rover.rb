@@ -34,27 +34,38 @@ class Rover
   def move
     case direction
       when "N"
-        @y_coordinate + 1
+        y_coordinate += 1
       when "S"
-        @y_coordinate - 1
+        y_coordinate -= 1
       when "E"
-        @x_coordinate + 1
+        x_coordinate += 1
       when "W"
-        @x_coordinate - 1
+        x_coordinate -= 1
     end
   end
 
   def turn
     case right
       when "N"
-        @direction = "E"
+        direction = "E"
       when "S"
-        @direction = "W"
+        direction = "W"
       when "E"
-        @direction = "S"
+        direction = "S"
       when "W"
-        @direction = "N"
+        direction = "N"
+    end
+
+    case left
+      when "N"
+        direction = "W"
+      when "S"
+        direction = "E"
+      when "E"
+        direction = "N"
+      when "W"
+        direction = "S"
     end
   end
-  
+
 end
