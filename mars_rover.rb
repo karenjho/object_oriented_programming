@@ -102,7 +102,7 @@ def read_instructions
     end
   end
   # gives ending position of the second rover
-  puts "End position for the first rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
+  puts "End position for the second rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
 end
 
 read_instructions
