@@ -9,5 +9,10 @@ class Good
     @tax_rate = 0.10
     @import_duty = 0.05
   end
-  
+end
+
+class Exempt < Good
+  def initialize
+    @tax_rate = 0
+  end
 end
