@@ -23,3 +23,8 @@ end
 chris = Instructor.new
 chris.name = "Chris"
 chris.greeting
+
+# create Cristina. she tells us her name.
+cristina = Student.new
+cristina.name = "Cristina"
+cristina.greeting
