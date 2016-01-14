@@ -72,9 +72,14 @@ def read_instructions
         r1.turn("R")
     end
   end
+  # checks to see if rover has fallen off the plateau
+  if ( r1.x_coordinate > plateau_size[0].to_i ) || ( r1.x_coordinate < 0 ) || ( r1.y_coordinate > plateau_size[1].to_i ) || ( r1.y_coordinate < 0 )
+    puts "First rover has fallen off the plateau and been destroyed."
+    puts "What have you done??"
+  else
   # gives ending position of the first rover
   puts "End position for the first rover: #{r1.x_coordinate} #{r1.y_coordinate} #{r1.direction}."
-
+  end
   puts "* * * * * * *"
 
   # asks user for starting postiion of the first rover
@@ -101,8 +106,20 @@ def read_instructions
         r2.turn("R")
     end
   end
-  # gives ending position of the second rover
-  puts "End position for the second rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
+  # checks to see if rovers have crashed into each other
+  if r2.x_coordinate == r1.x_coordinate && r2.y_coordinate == r1.y_coordinate
+    puts "Second rover has crashed into first rover and created a giant fireball."
+    puts "What have you done??"
+  else
+    # checks to see if rover has fallen off the plateau
+    if ( r2.x_coordinate > plateau_size[0] ) || ( r2.x_coordinate < 0 ) || ( r2.y_coordinate > plateau_size[1] ) || ( r2.y_coordinate < 0 )
+      puts "Second rover has fallen off the plateau and been destroyed."
+      puts "What have you done??"
+    else
+      # gives ending position of the second rover
+      puts "End position for the second rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
+    end
+  end
 end
 
 read_instructions
