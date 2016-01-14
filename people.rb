@@ -13,9 +13,9 @@ class Student < Person # add Student class to Person class
   end
 end
 
-class Instructor < Person# add Instructor class to Person class
+class Instructor < Person # add Instructor class to Person class
   def teach # add teach method to Instructor
-    "Everything in Ruby is an Object."
+    puts "Everything in Ruby is an Object."
   end
 end
 
@@ -28,3 +28,9 @@ chris.greeting
 cristina = Student.new
 cristina.name = "Cristina"
 cristina.greeting
+
+# ask Chris to teach. he teaches.
+chris.teach
+
+# ask Cristina to learn. she learns.
+cristina.learn
