@@ -6,7 +6,7 @@ class Rover
   def initialize(x_coordinate = 0, y_coordinate = 0, direction = "N")
     @x_coordinate = x_coordinate.to_i
     @y_coordinate = y_coordinate.to_i
-    @direction = direction.to_s
+    @direction = direction.to_s.upcase
   end
 
   def move
@@ -25,13 +25,13 @@ class Rover
   def turn(l_or_r)
     case @direction
       when "N"
-        l_or_r = "R" ? @direction = "E" : @direction = "W"
+        l_or_r == "R" ? @direction = "E" : @direction = "W"
       when "S"
-        l_or_r = "R" ? @direction = "W" : @direction = "E"
+        l_or_r == "R" ? @direction = "W" : @direction = "E"
       when "E"
-        l_or_r = "R" ? @direction = "S" : @direction = "N"
+        l_or_r == "R" ? @direction = "S" : @direction = "N"
       when "W"
-        l_or_r = "R" ? @direction = "N" : @direction = "S"
+        l_or_r == "R" ? @direction = "N" : @direction = "S"
     end
   end
 
@@ -46,22 +46,22 @@ def read_instructions
   puts "Please provide a start position for the first rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
   r1_start = gets.chomp.split(" ")
-  r1 = Rover.new(r1_start[0],r1_start[1],r1_start[2])
+  r1 = Rover.new(r1_start[0], r1_start[1], r1_start[2])
 
   puts "Please provide a series of move and turn instructions for the first rover."
   puts "L = turn left. R = turn right. M = move 1 space. Do not include spaces."
-  r1_instructions = get.chomp.split("")
+  r1_instructions = gets.chomp.split("")
   r1_instructions.each do |instruction|
     case instruction
       when "M"
         r1.move
       when "L"
-        r1.turn
+        r1.turn("L")
       when "R"
-        r1.turn
+        r1.turn("R")
     end
-  puts "End position for the first rover: #{x_coordinate} #{y_coordinate} #{direction}."
   end
+  puts "End position for the first rover: #{r1.x_coordinate} #{r1.y_coordinate} #{r1.direction}."
 
   puts "Please provide a start position for the second rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
@@ -70,5 +70,16 @@ def read_instructions
 
   puts "Please provide a series of move and turn instructions for the second rover."
   puts "L = turn left. R = turn right. M = move 1 space. Do not include spaces."
-  r2_instructions = get.chomp.split("")
+  r2_instructions = gets.chomp.split("")
+  r2_instructions.each do |instruction|
+    case instruction
+      when "M"
+        r2.move
+      when "L"
+        r2.turn("L")
+      when "R"
+        r2.turn("R")
+    end
+  end
+  puts "End position for the first rover: #{r2.x_coordinate} #{r2.y_coordinate} #{r2.direction}."
 end
