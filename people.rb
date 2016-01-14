@@ -13,7 +13,7 @@ class Student < Person # add Student class to Person class
   end
 end
 
-class Instructor # add Instructor class to Person class
+class Instructor < Person# add Instructor class to Person class
   def teach # add teach method to Instructor
     "Everything in Ruby is an Object."
   end
