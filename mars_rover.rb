@@ -44,12 +44,18 @@ def read_instructions
   puts "Please provide a plateau size in this format: W L"
   puts "W = width of plateau. L = height of plateau."
   plateau_size = gets.chomp.split(" ")
+  puts "Plateau size: #{plateau_size[0].to_s} #{plateau_size[1].to_s}"
+
+  puts "* * * * * * *"
 
   # asks user for starting postiion of the first rover
   puts "Please provide a start position for the first rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
   r1_start = gets.chomp.split(" ")
   r1 = Rover.new(r1_start[0], r1_start[1], r1_start[2])
+  puts "Rover start position: #{r1_start[0].to_s} #{r1_start[1].to_s} #{r1_start[2].to_s}"
+
+  puts "* * * * * * *"
 
   # asks user for move and turn instructions for the first rover
   puts "Please provide a series of move and turn instructions for the first rover."
@@ -69,11 +75,16 @@ def read_instructions
   # gives ending position of the first rover
   puts "End position for the first rover: #{r1.x_coordinate} #{r1.y_coordinate} #{r1.direction}."
 
+  puts "* * * * * * *"
+
   # asks user for starting postiion of the first rover
   puts "Please provide a start position for the second rover in this format: X Y D"
   puts "X = starting x-coordinate. Y = starting y-coordinate. D = starting direction."
   r2_start = gets.chomp.split(" ")
   r2 = Rover.new(r2_start[0],r2_start[1],r2_start[2])
+  puts "Rover start position: #{r2_start[0].to_s} #{r2_start[1].to_s} #{r2_start[2].to_s}"
+
+  puts "* * * * * * *"
 
   # asks user for move and turn instructions for the second rover
   puts "Please provide a series of move and turn instructions for the second rover."
